@@ -1,0 +1,33 @@
+<h1><%= @request.title %></h1>
+
+<div>
+<table>
+
+<tr>
+<td>Name:</td>
+<td><%= @request.client.name %></td>
+</tr>
+
+<tr>
+<td>Date:</td>
+<td><%= @request.date %></td>
+</tr>
+
+<tr>
+<td>Injury:</td>
+<td><%= @request.injury %></td>
+</tr>
+
+<tr>
+<td>Damages:</td>
+<td><%= "$#{@request.damages}" %></td>
+</tr>
+
+<tr>
+<td>Description:</td>
+<td><%= @request.description %></td>
+</tr>
+
+</table>
+
+</div>

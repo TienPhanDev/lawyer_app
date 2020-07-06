@@ -18,7 +18,7 @@ class RequestsController < ApplicationController
     if @request.save
       redirect_to request_path(@request.id)
     else
-      redirect_to new_request_path
+      render :new
     end
   end
 
@@ -38,11 +38,11 @@ class RequestsController < ApplicationController
   private 
 
   def get_request
-    Request.find(params[:id])
+    @request = Request.find(params[:id])
   end
 
   def request_params
-    params.require(:request).permit(:title, :date, :injury, :damages, :description, :police_report?, :client_id, :lawyer_id)
+    params.require(:request).permit(:title, :date, :injury, :damages, :description, :police_report, :client_id, :lawyer_id)
   end
 
 end

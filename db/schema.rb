@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_164655) do
+ActiveRecord::Schema.define(version: 2020_07_06_211857) do
 
   create_table "consults", force: :cascade do |t|
     t.integer "request_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_07_06_164655) do
     t.string "injury"
     t.integer "damages"
     t.string "description"
-    t.boolean "police_report?", default: false
+    t.boolean "police_report", default: false
     t.integer "client_id"
     t.integer "lawyer_id"
     t.datetime "created_at", precision: 6, null: false
