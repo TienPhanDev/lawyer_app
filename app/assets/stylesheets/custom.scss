@@ -121,3 +121,9 @@ footer {
   margin-top: 45px;
   @include box_sizing;
 }
+
+div.detail-list>ul {
+  text-align: center;
+  font-size: 2em;
+  list-style: none;
+}
