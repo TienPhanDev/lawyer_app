@@ -11,3 +11,11 @@
 <% end %>
 </ul></div>
 
+<h2>Requests</h2>
+<div><ul>
+  <% @user.client_requests.each do |req|%>
+    <li><%= link_to req.title, request_path(req.id) %></li>
+  <% end %>
+</ul></div>
+
+

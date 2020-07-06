@@ -27,4 +27,9 @@ class User < ApplicationRecord
     def self.clients
         User.all.where(lawyer: false)
     end
+
+    def client_requests
+        Request.all.where(client_id: self.id)
+    end
+
 end
