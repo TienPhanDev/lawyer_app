@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2020_07_06_164655) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.string "phone_number"
     t.string "state"
     t.integer "years_experience"
     t.boolean "lawyer", default: false

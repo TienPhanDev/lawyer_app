@@ -1,0 +1,7 @@
+<h1>All Requests</h1>
+
+<div><ul>
+<% @requests.each do |req| %>
+<li><%= link_to req.title, request_path(req.id) %></li>
+<% end %>
+</ul></div>
