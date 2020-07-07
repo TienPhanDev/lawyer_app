@@ -1,15 +1,6 @@
-<h1>All Users</h1>
-
-<h2>Clients</h2>
-<div><ul>
-<% @users.clients.each do |client| %>
-<li><%= link_to client.name, user_path(client.id) %></li>
-<% end %>
-</ul></div>
-
-<h2>Lawyers</h2>
+<h1>Lawyers</h1>
 <div><ul>
 <% @users.lawyers.each do |lawyer| %>
 <li><%= link_to lawyer.name, user_path(lawyer.id) %></li>
 <% end %>
-</ul></div>
+</ul></div> 

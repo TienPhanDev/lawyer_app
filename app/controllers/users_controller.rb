@@ -2,7 +2,12 @@ class UsersController < ApplicationController
   before_action :get_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all
+    if current_user.lawyer == false
+      @users = User.lawyers
+    else
+      redirect_to requests_path
+    end
+    # @users = User.all
   end
 
   def show
