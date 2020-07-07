@@ -14,6 +14,7 @@ class RequestsController < ApplicationController
   end
 
   def create
+    
     @request = Request.new(request_params)
     if @request.save
       redirect_to request_path(@request.id)
@@ -32,7 +33,8 @@ class RequestsController < ApplicationController
   end
 
   def destroy
-
+    @request.destroy
+    redirect_to user_path(session[:user_id])
   end
 
   private 

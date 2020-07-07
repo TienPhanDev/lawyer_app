@@ -10,7 +10,7 @@
 
 <tr>
 <td>Date:</td>
-<td><%= @request.date %></td>
+<td><%= @request.date.strftime("%b %d, %Y") %></td>
 </tr>
 
 <tr>
@@ -29,5 +29,5 @@
 </tr>
 
 </table>
-
 </div>
+

@@ -11,11 +11,21 @@
 <% end %>
 </ul></div>
 
-<h2>Requests</h2>
-<div><ul>
-  <% @user.client_requests.each do |req|%>
-    <li><%= link_to req.title, request_path(req.id) %></li>
-  <% end %>
-</ul></div>
+<%= link_to "Edit Profile", edit_user_path(@user.id) %>
+<%= link_to "Delete Profile", user_path(@user.id), method: :delete, data: { confirm: "Really?"} %>
+
+<% if @user.lawyer == false %>
+  <h2><%= "Requests" %></h2>
+  <div><ul>
+    <% @user.client_requests.each do |req|%>
+      <li>
+      <%= link_to req.title, request_path(req.id) %>
+      <%= link_to "Edit", edit_request_path(req.id) %>
+      <%= link_to "Delete", request_path(req.id), method: :delete, data: { confirm: "Really?"} %>
+      </li>
+    <% end %>
+  </ul></div>
+  <%= link_to "Create New Request", new_request_path %>
+<% end %>
 
 

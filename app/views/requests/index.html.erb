@@ -1,7 +1,13 @@
 <h1>All Requests</h1>
 
-<div><ul>
+<div>
+<table>
 <% @requests.each do |req| %>
-<li><%= link_to req.title, request_path(req.id) %></li>
+<tr>
+<td><%= link_to req.title, request_path(req.id) %></td>
+<td><%= req.client.name unless req.client.nil? %></td>
+<td><%= req.created_at.strftime("%b %d, %Y") %></td>
+</tr>
 <% end %>
-</ul></div>
+</table>
+</div>

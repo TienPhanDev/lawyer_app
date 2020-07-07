@@ -32,4 +32,8 @@ class User < ApplicationRecord
         Request.all.where(client_id: self.id)
     end
 
+    def current_or_lawyer?(arg)
+        self == arg || self.lawyer
+    end
+
 end

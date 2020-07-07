@@ -1,12 +1,5 @@
-<% if @request.errors %>
-<ul>
-<% @request.errors.full_messages.each do |m| %>
-<li><%= m %></li>
-<% end %>
-</ul>
-<% end %>
-
 <%= form_for @request do |f| %>
+<%= render 'shared/request_error_messages' %>
 <%= f.label :title %>
 <%= f.text_field :title %>
 <br><br>
@@ -25,6 +18,6 @@
 <%= f.label :police_report %>
 <%= f.check_box :police_report, {}, 'true' %>
 <br><br>
-<%#remember hidden field%>
+<%= f.hidden_field :client_id, value: session[:user_id] %>
 <%= f.submit %>
 <% end %>

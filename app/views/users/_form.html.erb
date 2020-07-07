@@ -1,0 +1,44 @@
+<%= form_for @user do |f| %>
+<%= render 'shared/user_error_messages' %>
+<table>
+<tr>
+  <td><%= f.label :name %></td>
+  <td><%= f.text_field :name %></td>
+</tr>
+
+<tr>
+  <td><%= f.label :email %></td>
+  <td><%= f.text_field :email %></td>
+</tr>
+<tr>
+  <td><%= f.label :password %></td>
+  <td><%= f.password_field :password %></td>
+</tr>
+<tr>
+  <td><%= f.label :password_confirmation %></td>
+  <td><%= f.password_field :password_confirmation %></td>
+</tr>
+<tr>
+  <td><%= f.label :phone_number %></td>
+  <td><%= f.text_field :phone_number %></td>
+</tr>
+<tr>
+  <td><h2>Signing up as a Lawyer?</h2></td>
+</tr>
+<tr>
+  <td><%= f.label "Yes, I'm a Lawyer..." %></td>
+  <td><%= f.check_box :lawyer, {}, checked_value='true', unchecked_value='false' %></td>
+</tr>
+<tr>
+  <td><%= f.label :state %></td>
+  <td><%= f.text_field :state %></td>
+</tr>
+<tr>
+  <td><%= f.label :years_experience%></td>
+  <td><%= f.number_field :years_experience %></td>
+</tr>
+<tr>
+  <td><%= f.submit %></td>
+</tr>
+</table>
+<% end %>
