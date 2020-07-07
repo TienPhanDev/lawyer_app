@@ -25,6 +25,6 @@
 <%= f.label :police_report %>
 <%= f.check_box :police_report, {}, 'true' %>
 <br><br>
-<%#remember hidden field%>
+<%= f.hidden_field :client_id, value: session[:user_id] %>
 <%= f.submit %>
 <% end %>
