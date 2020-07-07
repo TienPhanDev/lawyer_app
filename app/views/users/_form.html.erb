@@ -1,4 +1,5 @@
 <%= form_for @user do |f| %>
+<%= render 'shared/user_error_messages' %>
 <table>
 <tr>
   <td><%= f.label :name %></td>
