@@ -4,9 +4,9 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home", root_path %></li>
-            <% if current_user.lawyer == false %>
+            <% if current_user && current_user.lawyer == false %>
             <li><%= link_to "Browse", users_path %></li>
-            <% else %>
+            <% elsif current_user %>
             <li><%= link_to "Browse", requests_path %></li>
             <% end %>
             <% if session[:user_id] %>

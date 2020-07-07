@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'consult/show'
+  get 'consult/new'
+  get 'consult/create'
+  get 'consult/edit'
+  get 'consult/update'
+  get 'consult/destroy'
   resources :requests
   resources :users
 
