@@ -24,6 +24,7 @@
 body {
     padding-top: 60px;
     background-color: cornflowerblue;
+    margin-top: 0;
   }
   
   section {
@@ -44,6 +45,8 @@ body {
 
   .content {
     background-color: ghostwhite;
+    margin-top: 0;
+    border-radius: 5px;
   }
 
   
@@ -91,7 +94,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   #logo:hover {
-    color: #fff;
+    color: rgb(154, 175, 222);
     text-decoration: none;
   }
 
@@ -185,6 +188,10 @@ div.detail-list>ul {
 
 div.center.jumbotron {
   background-image: image-url('background.jpg');
+  background-size: 100%;
+  color: rgb(48, 54, 74);
+  align-items: center;
+  margin-top: 10px;
 }
 
 a#logo {
@@ -194,6 +201,26 @@ a#logo {
   font-size: 2em;
 }
 
+header>div.container, header.navbar {
+  font-family: "Playfair Display";
+  background-color: rgb(29, 40, 58);
+  margin: auto;
+  margin-bottom: 0;
+}
+
 div.link-buttons {
 
+}
+
+div.link-buttons a:hover {
+  text-decoration: none;
+  color: rgb(185, 124, 228);
+}
+
+div.title-card {
+  background-color: rgba(154, 176, 222, 0.9);
+  padding: 10px;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 10px;
 }
