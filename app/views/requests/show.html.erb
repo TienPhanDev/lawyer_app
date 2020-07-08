@@ -30,4 +30,10 @@
 
 </table>
 </div>
+<br><br>
+<div>
+  <% if current_user.lawyer == true %>
+  <%= button_to "Offer Consult", consults_path, params {request_id: @request.id}, method: :post %>
+  <% end %>
+</div>
 
