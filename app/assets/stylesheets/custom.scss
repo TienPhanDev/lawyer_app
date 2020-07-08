@@ -9,6 +9,15 @@
   box-sizing:         border-box;
 }
 
+/* Fonts */
+
+@font-face {
+  font-family: 'Notable';
+  src: font-url('/assets/Notable-Regular.ttf');
+  font-family: 'Playfair Display';
+  src: font-url('/assets/PlayfairDisplay-Regular.ttf');
+}
+
 
 /* universal */
 
@@ -32,11 +41,17 @@ body {
   .center h1 {
     margin-bottom: 10px;
   }
+
+  .content {
+    background-color: ghostwhite;
+  }
+
   
 
   /* typography */
 
 h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display';
     line-height: 1;
   }
   
@@ -48,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   h2 {
-    font-size: 1.2em;
+    font-size: 1.5em;
     letter-spacing: -1px;
     margin-bottom: 30px;
     text-align: center;
@@ -161,11 +176,24 @@ input {
 }
 
 div.detail-list>ul {
-  text-align: center;
-  font-size: 2em;
+  padding-left: 0;
+  font-family: 'Playfair Display';
+  font-size: 1.2em;
+  // text-align: center;
   list-style: none;
 }
 
 div.center.jumbotron {
   background-image: image-url('background.jpg');
+}
+
+a#logo {
+  padding: 0;
+  margin: 0;
+  font-family: 'Playfair Display';
+  font-size: 2em;
+}
+
+div.link-buttons {
+
 }

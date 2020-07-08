@@ -1,6 +1,6 @@
 <h1><%= @user.name %></h1>
 <h2>Details</h2>
-<div class="detail-list"><ul>
+<div class="detail-list center"><ul>
 <li><%= "Phone Number: #{@user.phone_number}" %></li>
 </ul></div>
 
@@ -11,8 +11,8 @@
 <% end %>
 </ul></div>
 
-<%= link_to "Edit Profile", edit_user_path(@user.id) %>
-<%= link_to "Delete Profile", user_path(@user.id), method: :delete, data: { confirm: "Really?"} %>
+<div class='link-buttons center'><%= link_to "Edit Profile", edit_user_path(@user.id) %></div>
+<div class='link-buttons center'><%= link_to "Delete Profile", user_path(@user.id), method: :delete, data: { confirm: "Really?"} %></div>
 
 <% if @user.lawyer == false %>
   <h2><%= "Requests" %></h2>
@@ -25,7 +25,7 @@
       </li>
     <% end %>
   </ul></div>
-  <%= link_to "Create New Request", new_request_path %>
+  <div class='link-buttons center'><%= link_to "Create New Request", new_request_path %></div>
 <% end %>
 
 

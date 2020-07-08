@@ -36,4 +36,9 @@ class User < ApplicationRecord
         self == arg || self.lawyer
     end
 
+    def format_phone_number(phone_num)
+        pn_chunks = phone_num.split(/[\ ,(,),-]/).reject{|s| s.empty?}
+        pn_chunks[0].prepend('(').concat(')') + pn_chunks[1..2].join('-')
+    end
+
 end
