@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_06_211857) do
+ActiveRecord::Schema.define(version: 2020_07_09_144249) do
 
   create_table "consults", force: :cascade do |t|
     t.integer "request_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_07_06_211857) do
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
   end
 
   create_table "requests", force: :cascade do |t|

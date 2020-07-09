@@ -3,5 +3,6 @@
 <%= f.datetime_select :time %>
 <%= f.label :location %>
 <%= f.text_field :location %>
+<%= f.hidden_field :status, value: "accepted" %>
 <%= f.submit "Send" %>
 <% end %>

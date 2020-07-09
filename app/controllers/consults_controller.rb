@@ -12,7 +12,9 @@ class ConsultsController < ApplicationController
   def create
     @request = Request.find(params[:request_id])
     @request.update(lawyer_id: current_user.id)
-    @consult = Consult.new(request_id: @request.id)
+    byebug
+    @consult = Consult.new
+    @consult.assign_attributes(request_id: @request.id)
     if @consult.save
       flash[:success] = "Consultation Offer Created. Waiting for Client Response."
       redirect_to request_path(@request.id)
@@ -43,6 +45,6 @@ class ConsultsController < ApplicationController
   end
 
   def consult_params
-    params.require(:consult).permit(:request_id, :time, :location)
+    params.require(:consult).permit(:request_id, :time, :location, :status)
   end
 end
