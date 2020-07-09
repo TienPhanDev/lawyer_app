@@ -1,6 +1,22 @@
 <h1>Lawyers</h1>
-<div><ul>
+
+<tr>
+  <th>Name</th>
+  <th>Telephone</th>
+</tr>
+
+<br><br>
+
 <% @users.each do |lawyer| %>
-<li><%= link_to lawyer.name, user_path(lawyer.id) %></li>
+  <div class="chip">
+      <tr>
+        <td><%= link_to image_tag("img_avatar (1).png", :size => "96x96", :alt => "john-doe"), user_path(lawyer.id) %></td>
+        <td><%= link_to lawyer.name, user_path(lawyer.id) %></td>
+      </tr>
+  </div>
+      <tr>
+        <td><%= link_to lawyer.phone_number, user_path(lawyer.id) %></td>
+        <br><br>    
+      </tr>
 <% end %>
-</ul></div> 
+        

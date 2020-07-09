@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  namespace :intake do
+    resources :user_profiles, only: [:new, :create]
+    resources :user_accounts, only: [:new, :create]
+  end
+  
   get 'consult/show'
   get 'consult/new'
   get 'consult/create'
@@ -21,5 +26,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
+
+  
   
 end

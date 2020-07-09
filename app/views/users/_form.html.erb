@@ -30,15 +30,15 @@
   <td><%= f.check_box :lawyer, {}, checked_value='true', unchecked_value='false' %></td>
 </tr>
 <tr>
-  <td><%= f.label :state %></td>
+  <td><%= f.label :state, "State(s) Actively Licensed:"%></td>
   <td><%= f.text_field :state %></td>
 </tr>
 <tr>
-  <td><%= f.label :years_experience%></td>
+  <td><%= f.label :years_experience, "Years of Experience:"%></td>
   <td><%= f.number_field :years_experience %></td>
 </tr>
 <tr>
-  <td><%= f.submit %></td>
+  <td><%= f.submit "Create Account" %></td>
 </tr>
 </table>
 <% end %>
