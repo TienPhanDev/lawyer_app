@@ -1,13 +1,18 @@
 <h1>All Requests</h1>
 
-<div>
-<table>
-<% @requests.each do |req| %>
-<tr>
-<td><%= link_to req.title, request_path(req.id) %></td>
-<td><%= req.client.name unless req.client.nil? %></td>
-<td><%= req.created_at.strftime("%b %d, %Y") %></td>
-</tr>
-<% end %>
-</table>
+<div class="container">
+<ul>
+  <% @requests.each do |req| %>
+  <li>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="..." alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to req.title, request_path(req.id) %></h5>
+        <p class="card-text">Name: <%= req.client.name unless req.client.nil? %></p>
+        <p class="card-text">Created: <%= req.created_at.strftime("%b %d, %Y") %></p>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</ul>
 </div>
