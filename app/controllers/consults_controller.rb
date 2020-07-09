@@ -11,7 +11,15 @@ class ConsultsController < ApplicationController
 
   def create
     @request = Request.find(params[:request_id])
+    @request.update(lawyer_id: current_user.id)
     @consult = Consult.new(request_id: @request.id)
+    if @consult.save
+      flash[:success] = "Consultation Offer Created. Waiting for Client Response."
+      redirect_to request_path(@request.id)
+    else 
+      flash[:danger] = "Something went wrong =("
+      redirect_to request_path(@request.id)
+    end
   end
 
   def edit
@@ -31,7 +39,7 @@ class ConsultsController < ApplicationController
   private 
 
   def get_consult
-    @consult = consult.find(params[:id])
+    @consult = Consult.find(params[:id])
   end
 
   def consult_params

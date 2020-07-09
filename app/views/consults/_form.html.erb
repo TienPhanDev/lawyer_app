@@ -1,7 +1,6 @@
-<%= form_for @consult do |f| %>
-<%= f.hidden_field :request_id, value: params[:request_id] %>
+<%= form_for @consult, url: consult_path(@consult.id), method: :patch do |f| %>
 <%= f.label :time %>
-<%= f.datetime_select :time, :ampm => true, :minute_step => 15 %>
+<%= f.datetime_select :time %>
 <%= f.label :location %>
 <%= f.text_field :location %>
 <%= f.submit "Send" %>

@@ -33,7 +33,10 @@
 <br><br>
 <div>
   <% if current_user.lawyer == true %>
-  <%= button_to "Offer Consult", consults_path, params {request_id: @request.id}, method: :post %>
+  <%= form_tag consults_path, :method => :post do %>
+  <%= hidden_field_tag :request_id, @request.id %>
+  <%= submit_tag "Offer Consult" %>
+  <% end %>
   <% end %>
 </div>
 
