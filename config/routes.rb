@@ -3,15 +3,10 @@ Rails.application.routes.draw do
     resources :user_profiles, only: [:new, :create]
     resources :user_accounts, only: [:new, :create]
   end
-  
-  get 'consult/show'
-  get 'consult/new'
-  get 'consult/create'
-  get 'consult/edit'
-  get 'consult/update'
-  get 'consult/destroy'
+
   resources :requests
   resources :users
+  resources :consults
 
   #landing page will be home AKA root_path
   root 'static_pages#home'

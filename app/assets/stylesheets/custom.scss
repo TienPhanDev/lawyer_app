@@ -9,11 +9,22 @@
   box-sizing:         border-box;
 }
 
+/* Fonts */
+
+@font-face {
+  font-family: 'Notable';
+  src: font-url('/assets/Notable-Regular.ttf');
+  font-family: 'Playfair Display';
+  src: font-url('/assets/PlayfairDisplay-Regular.ttf');
+}
+
 
 /* universal */
 
 body {
     padding-top: 60px;
+    background-color: cornflowerblue;
+    margin-top: 0;
   }
   
   section {
@@ -31,11 +42,19 @@ body {
   .center h1 {
     margin-bottom: 10px;
   }
+
+  .content {
+    background-color: ghostwhite;
+    margin-top: 0;
+    border-radius: 5px;
+  }
+
   
 
   /* typography */
 
 h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display';
     line-height: 1;
   }
   
@@ -47,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   h2 {
-    font-size: 1.2em;
+    font-size: 1.5em;
     letter-spacing: -1px;
     margin-bottom: 30px;
     text-align: center;
@@ -75,7 +94,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   #logo:hover {
-    color: #fff;
+    color: rgb(154, 175, 222);
     text-decoration: none;
   }
 
@@ -214,9 +233,11 @@ input[type=submit]:hover {
   @include box_sizing;
 }
 
-div.detail-list>ul {
-  text-align: center;
-  font-size: 2em;
+div.detail-list>ul> {
+  padding-left: 0;
+  font-family: 'Playfair Display';
+  font-size: 1.2em;
+  // text-align: center;
   list-style: none;
 }
 
@@ -284,3 +305,45 @@ td {
     background-color: red;
     color: white;
   }
+div.center.jumbotron {
+  background-image: image-url('background.jpg');
+  background-size: 100%;
+  color: rgb(48, 54, 74);
+  align-items: center;
+  margin-top: 10px;
+}
+
+a#logo {
+  padding: 0;
+  margin: 0;
+  font-family: 'Playfair Display';
+  font-size: 2em;
+}
+
+header>div.container, header.navbar {
+  font-family: "Playfair Display";
+  background-color: rgb(29, 40, 58);
+  margin: auto;
+  margin-bottom: 0;
+}
+
+div.link-buttons a:hover {
+  text-decoration: none;
+  color: rgb(185, 124, 228);
+}
+
+div.title-card {
+  background-color: rgba(154, 176, 222, 0.9);
+  padding: 10px;
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+  background-color: rgb(48, 62, 91);
+}
+
+div.detail-list>table{
+  width: 60%;
+}

@@ -1,10 +1,13 @@
 class User < ApplicationRecord
     has_many :requests
+    
     has_many :law_users, foreign_key: :lawyer_id, class_name: 'Request'
     has_many :clients, through: :law_users
     
     has_many :requesters, foreign_key: :client_id, class_name: 'Request'
     has_many :lawyers, through: :requesters 
+
+    has_many :consults, through: :requests
 
     #before save to database, downcase all emails in case two emails are same
     before_save { self.email = email.downcase } 
@@ -34,6 +37,11 @@ class User < ApplicationRecord
 
     def current_or_lawyer?(arg)
         self == arg || self.lawyer
+    end
+
+    def format_phone_number(phone_num)
+        pn_chunks = phone_num.split(/[\ ,(,),-]/).reject{|s| s.empty?}
+        pn_chunks[0].prepend('(').concat(')') + pn_chunks[1..2].join('-')
     end
 
 end
