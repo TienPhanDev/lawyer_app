@@ -1,11 +1,10 @@
 class User < ApplicationRecord
-    has_many :requests
+
+    has_many :accepted_requests, foreign_key: :lawyer_id, class_name: 'Request'
+    has_many :clients, through: :accepted_requests
     
-    has_many :law_users, foreign_key: :lawyer_id, class_name: 'Request'
-    has_many :clients, through: :law_users
-    
-    has_many :requesters, foreign_key: :client_id, class_name: 'Request'
-    has_many :lawyers, through: :requesters 
+    has_many :requests, foreign_key: :client_id, class_name: 'Request'
+    has_many :lawyers, through: :requests
 
     has_many :consults, through: :requests
 
@@ -42,6 +41,10 @@ class User < ApplicationRecord
     def format_phone_number(phone_num)
         pn_chunks = phone_num.split(/[\ ,(,),-]/).reject{|s| s.empty?}
         pn_chunks[0].prepend('(').concat(')') + pn_chunks[1..2].join('-')
+    end
+
+    def notification_count
+        self.requests.where.not(lawyer_id: nil).count
     end
 
 end

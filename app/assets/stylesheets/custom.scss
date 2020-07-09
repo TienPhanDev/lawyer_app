@@ -198,9 +198,18 @@ input[type=submit]:hover {
 
 /* Add a background color and some padding around the form */
 .email-form {
+  width: 50%;
+  display: flex;
+  float: right;
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+}
+
+.container>img {
+  margin: 50px;
+  float: left;
+  clear: left;
 }
 
   /* About Page */

@@ -4,10 +4,10 @@
 <li><%= "Phone Number: #{@user.phone_number}" %></li>
 </ul></div>
 
-<h1>(Pending)</h1>
+<h3>Notifications</h3>
 <a href="#" class="notification">
   <span>Inbox</span>
-  <span class="badge">3</span>
+  <span class="badge"><%= @user.notification_count unless @user.notification_count == 0 %></span>
 </a>
 
 
@@ -24,7 +24,7 @@
 
 <% if @user.lawyer == false %>
   <h2><%= "Requests" %></h2>
-  <div><ul>
+  <div class="request-buttons"><ul>
     <% @user.client_requests.each do |req|%>
       <li>
       <%= link_to req.title, request_path(req.id) %>
@@ -33,7 +33,7 @@
       </li>
     <% end %>
   </ul></div>
-  <div class='link-buttons center'><%= link_to "Create New Request", new_request_path %></div>
+  <div class='link-buttons center'><%= button_to "Create New Request", new_request_path %></div>
 <% end %>
 
 

@@ -2,8 +2,6 @@
 
 To-Dos
 
-1)Correct migration files esp. police_report? & user phone_number
-
 2)Implement below in UsersController; otherwise user can type users/1/edit and change data. current_user -> logged_in?
 before_action :logged_in_user, only: [:edit, :update]
 # Confirms a logged-in user.
@@ -13,13 +11,6 @@ before_action :logged_in_user, only: [:edit, :update]
       redirect_to login_url
     end
   end
-
-3)users#index
-4)static_pages#help
-5)static_pages#about
-6)static_pages#contact
-7)users#new
-8)users#inbox notifications
 
 
 **CODE SNIPPETS BELOW**
