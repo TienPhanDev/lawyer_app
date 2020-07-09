@@ -1,34 +1,34 @@
 <h1><%= @request.title %></h1>
 
 <div>
-<table>
+  <table>
 
-<tr>
-<td>Name:</td>
-<td><%= @request.client.name %></td>
-</tr>
+    <tr>
+      <td>Name:</td>
+      <td><%= @request.client.name %></td>
+    </tr>
 
-<tr>
-<td>Date:</td>
-<td><%= @request.date.strftime("%b %d, %Y") %></td>
-</tr>
+    <tr>
+      <td>Date:</td>
+      <td><%= @request.date.strftime("%b %d, %Y") %></td>
+    </tr>
 
-<tr>
-<td>Injury:</td>
-<td><%= @request.injury %></td>
-</tr>
+    <tr>
+      <td>Injury:</td>
+      <td><%= @request.injury %></td>
+    </tr>
 
-<tr>
-<td>Damages:</td>
-<td><%= "$#{@request.damages}" %></td>
-</tr>
+    <tr>
+      <td>Damages:</td>
+      <td><%= "$#{@request.damages}" %></td>
+    </tr>
 
-<tr>
-<td>Description:</td>
-<td><%= @request.description %></td>
-</tr>
+    <tr>
+      <td>Description:</td>
+      <td><%= @request.description %></td>
+    </tr>
 
-</table>
+  </table>
 </div>
 <br><br>
 <div>
@@ -40,9 +40,16 @@
   <% end %>
 </div>
 
-<div>
+<div class="detail-list">
   <% if @request.consult %>
-  <h4>Pending Consults: <%= link_to @request.consult.lawyer.name, consult_path(@request.consult.id) %></h4>
+  <table>
+    <tr>
+      <td>
+        <h4>Pending Consult with <%= @request.consult.lawyer.name %>:</h4>
+      </td>
+      <td><%= link_to "Accept/Edit Consult |", edit_consult_path(@request.consult.id) %></td>
+      <td><%= link_to "| Reject/Cancel Consult", consult_path(@request.consult.id), method: :delete %></td>
+    </tr>
+  </table>
   <% end %>
 </div>
-

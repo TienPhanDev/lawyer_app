@@ -178,7 +178,7 @@ input {
   @include box_sizing;
 }
 
-div.detail-list>ul {
+div.detail-list>ul> {
   padding-left: 0;
   font-family: 'Playfair Display';
   font-size: 1.2em;
@@ -208,10 +208,6 @@ header>div.container, header.navbar {
   margin-bottom: 0;
 }
 
-div.link-buttons {
-
-}
-
 div.link-buttons a:hover {
   text-decoration: none;
   color: rgb(185, 124, 228);
@@ -227,4 +223,8 @@ div.title-card {
 
 .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
   background-color: rgb(48, 62, 91);
+}
+
+div.detail-list>table{
+  width: 60%;
 }
