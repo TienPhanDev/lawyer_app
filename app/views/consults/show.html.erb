@@ -4,3 +4,4 @@
 <h2>Consultation Appointment</h2>
 <h3>Time: <%= @consult.time.strftime("%b %e at %l:%M %p ") %></h3>
 <h3>Place: <%= @consult.location %></h3>
+<%= link_to "View Request Details", request_path(@consult.request_id) %>

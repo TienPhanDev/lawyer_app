@@ -40,3 +40,9 @@
   <% end %>
 </div>
 
+<div>
+  <% if @request.consult %>
+  <h4>Pending Consults: <%= link_to @request.consult.lawyer.name, consult_path(@request.consult.id) %></h4>
+  <% end %>
+</div>
+
