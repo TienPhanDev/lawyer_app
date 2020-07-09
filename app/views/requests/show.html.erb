@@ -32,14 +32,19 @@
 </div>
 <br><br>
 <div>
-  <% if current_user.lawyer == true %>
+  <% if current_user.lawyer == true && @request.lawyer_id == nil %>
   <%= form_tag consults_path, :method => :post do %>
   <%= hidden_field_tag :request_id, @request.id %>
   <%= submit_tag "Offer Consult" %>
   <% end %>
+  <% elsif current_user.lawyer == true %>
+  <%= form_tag consult_path(@request.consult.id), method: :delete  do %>
+  <%= submit_tag "Cancel Consult", :id => "cancelbutton" %>
+  <% end %>
   <% end %>
 </div>
 
+<% if current_user.lawyer == false%>
 <div class="detail-list">
   <% if @request.consult %>
   <table>
@@ -53,3 +58,4 @@
   </table>
   <% end %>
 </div>
+<% end %>

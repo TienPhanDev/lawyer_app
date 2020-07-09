@@ -43,8 +43,12 @@ class User < ApplicationRecord
         pn_chunks[0].prepend('(').concat(')') + pn_chunks[1..2].join('-')
     end
 
-    def notification_count
+    def client_notification_count
         self.requests.where.not(lawyer_id: nil).count
+    end
+
+    def lawyer_notification_count
+        self.accepted_requests.count
     end
 
 end

@@ -2,14 +2,25 @@
 <h2>Request created by: <%= @consult.client.name %></h2>
 <h2>Being reviewed by: <%= @consult.lawyer.name %></h2>
 <h2>Consultation Appointment</h2>
-<h3>Time: <%= @consult.time.strftime("%b %e at %l:%M %p ") %></h3>
-<h3>Place: <%= @consult.location %></h3>
+<h3 class='center'>Time: <%= @consult.time.strftime("%b %e at %l:%M %p ") %></h3>
+<h3 class='center'>Place: <%= @consult.location %></h3>
 <%= link_to "View Request Details", request_path(@consult.request_id) %>
+
+
+
 <div>
-  <% if current_user.lawyer == true %>
-  <%= form_tag consults_path, :method => :post do %>
-  <%= hidden_field_tag :status, "completed" %>
-  <%= submit_tag "Consult Completed" %>
+  <% if current_user.lawyer == true && @consult.status != "completed" %>
+  <%= form_for @consult, url: consult_path(@consult.id), :method => :patch do |f| %>
+  <%= f.hidden_field :status, :value => "completed"  %>
+  <%= f.submit "Consult Completed" %>
   <% end %>
   <% end %>
+</div>
+
+<div>
+<% if current_user.lawyer == false%>
+  <%= form_tag consult_path(@consult.id), method: :delete  do %>
+  <%= submit_tag "Cancel Consult", :id => "cancelbutton" %>
+  <% end %>
+<% end %>
 </div>

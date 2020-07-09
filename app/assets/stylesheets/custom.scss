@@ -25,6 +25,7 @@ body {
     padding-top: 60px;
     background-color: cornflowerblue;
     margin-top: 0;
+    font-family: "Playfair Display";
   }
   
   section {
@@ -79,6 +80,10 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.7em;
   }
 
+  ul, li {
+    padding: 0;
+  }
+
 
   /* header */
 
@@ -102,7 +107,8 @@ h1, h2, h3, h4, h5, h6 {
   /* footer */
 
 footer {
-    margin-top: 45px;
+    margin: 80px;
+    margin-top: 15px;
     padding-top: 5px;
     border-top: 1px solid #eaeaea;
     color: #777;
@@ -183,7 +189,7 @@ input[type=text], select, textarea {
 
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
-  background-color: blue;
+  background-color: cornflowerblue;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -191,9 +197,22 @@ input[type=submit] {
   cursor: pointer;
 }
 
+#cancelbutton {
+  background-color: rgb(211, 69, 69);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#cancelbutton:hover {
+  background-color: rgb(232, 132, 132);
+}
+
 /* When moving the mouse over the submit button, add a darker green color */
 input[type=submit]:hover {
-  background-color: palevioletred;
+  background-color: rgb(112, 188, 216);
 }
 
 /* Add a background color and some padding around the form */
@@ -242,8 +261,8 @@ input[type=submit]:hover {
   @include box_sizing;
 }
 
-div.detail-list>ul> {
-  padding-left: 0;
+div.detail-list>ul>li {
+  padding: 0;
   font-family: 'Playfair Display';
   font-size: 1.2em;
   // text-align: center;
@@ -357,3 +376,111 @@ div.detail-list>table{
   width: 60%;
 }
 
+span.badge {
+  background-color: darkred;
+  font-size: 16px;
+}
+
+.request-buttons>ul {
+  text-align: center;
+  list-style: none;
+}
+
+.content>h1 {
+  width: 100%;
+}
+
+
+.card {
+  width: 200px;
+  height: 300px;
+  float: left;
+  border-style: solid;
+  border-width: 1px;
+  transition: 0.3s;
+  border-radius: 5px; 
+  margin: 10px;
+}
+.card>img {
+  border-radius: 5px 5px 0 0;
+  display: block;
+}
+
+.property-card
+{
+  height:18em;
+  width:14em;
+  display:-webkit-box;
+  display:-ms-flexbox;
+  display:flex;
+  -webkit-box-orient:vertical;
+  -webkit-box-direction:normal;
+  -ms-flex-direction:column;
+  flex-direction:column;
+  position:relative;
+  -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border-radius:16px;
+  overflow:hidden;
+  -webkit-box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+  box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+}
+/* ^-- The margin bottom is necessary for the drop shadow otherwise it gets clipped in certain cases. */
+
+/* Top Half of card, image. */
+
+.property-image
+{
+  height:6em;
+  width:14em;
+  padding:1em 2em;
+  position:Absolute;
+  top:0px;
+  -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-image: image-url('/assets/logo.png');
+  background-color: dimgray;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+/* Bottom Card Section */
+
+.property-description
+{
+  background-color: #FAFAFC;
+  height:12em;
+  width:14em;
+  position:absolute;
+  bottom:0em;
+  -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  padding: 0.5em 1em;
+  text-align:center;
+}
+
+/* Property Cards Hover States */
+
+.property-card:hover .property-description
+{
+  height:0em;
+  padding:0px 1em;
+}
+.property-card:hover .property-image
+{
+  height:18em;
+}
+
+.property-card:hover .property-social-icons
+{
+  background-color:white;
+}
+
+.property-card:hover .property-social-icons:hover
+{
+  background-color:blue;
+  cursor:pointer;
+}

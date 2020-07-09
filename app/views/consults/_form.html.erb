@@ -1,6 +1,6 @@
 <%= form_for @consult, url: consult_path(@consult.id), method: :patch do |f| %>
 <%= f.label :time %>
-<%= f.datetime_select :time %>
+<%= f.datetime_select :time, :ampm => true, :minute_step => 30 %>
 <%= f.label :location %>
 <%= f.text_field :location %>
 <%= f.hidden_field :status, value: "accepted" %>

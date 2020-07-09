@@ -12,7 +12,6 @@ class ConsultsController < ApplicationController
   def create
     @request = Request.find(params[:request_id])
     @request.update(lawyer_id: current_user.id)
-    byebug
     @consult = Consult.new
     @consult.assign_attributes(request_id: @request.id)
     if @consult.save

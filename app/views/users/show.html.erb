@@ -4,15 +4,8 @@
 <li><%= "Phone Number: #{@user.phone_number}" %></li>
 </ul></div>
 
-<h3>Notifications</h3>
-<a href="#" class="notification">
-  <span>Inbox</span>
-  <span class="badge"><%= @user.notification_count unless @user.notification_count == 0 %></span>
-</a>
 
-
-
-<div class="detail-list"><ul>
+<div class="detail-list center"><ul>
 <% if @user.lawyer == true %>
   <li><%= "State of Practice: #{@user.state}"%></li>
   <li><%= "Years of Experience: #{@user.years_experience}"%></li>
@@ -22,18 +15,37 @@
 <div class='link-buttons center'><%= link_to "Edit Profile", edit_user_path(@user.id) %></div>
 <div class='link-buttons center'><%= link_to "Delete Profile", user_path(@user.id), method: :delete, data: { confirm: "Really?"} %></div>
 
-<% if @user.lawyer == false %>
-  <h2><%= "Requests" %></h2>
+
+<h2>
+  <span>Requests</span>
+  <span class="badge">
+  <% if @user.lawyer == false %>
+  <%= @user.client_notification_count unless @user.client_notification_count == 0 %>
+  <% else %>
+  <%= @user.lawyer_notification_count unless @user.lawyer_notification_count == 0 %>
+  <% end %>
+  </span>
+</h2>
   <div class="request-buttons"><ul>
-    <% @user.client_requests.each do |req|%>
+    <% if @user.lawyer == false %>
+    <% @user.requests.each do |req|%>
       <li>
       <%= link_to req.title, request_path(req.id) %>
+      <%= link_to "Consult with: " + req.consult.lawyer.name, consult_path(req.consult.id) %>
       <%= link_to "Edit", edit_request_path(req.id) %>
       <%= link_to "Delete", request_path(req.id), method: :delete, data: { confirm: "Really?"} %>
       </li>
     <% end %>
+    <% else %>
+    <% @user.accepted_requests.each do |req|%>
+      <li>
+      <%= link_to req.title, request_path(req.id) %>
+    <% end%>
+    <% end %>
   </ul></div>
-  <div class='link-buttons center'><%= button_to "Create New Request", new_request_path %></div>
+  
+<% if @user.lawyer == false %>
+  <div class='link-buttons center'><%= button_to "Create New Request", new_request_path, method: :get %></div>
 <% end %>
 
 
