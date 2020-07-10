@@ -39,19 +39,18 @@
       <% end %>
     </span>
   </h2>
-  <ul>
   
     <% if @user.lawyer == false %>
       <div class="consult-container center col-12">
       <% @user.requests.each do |req|%>
-      <li>
-        <%= link_to req.title, request_path(req.id) %>
+        <h4><%= link_to req.title, request_path(req.id) %></h4>
         <% if req.consult %>
         <%= link_to "Consult with: " + req.consult.lawyer.name, consult_path(req.consult.id) %>
         <% end %>
+      <div class="link-buttons">
         <%= link_to "Edit", edit_request_path(req.id) %>
         <%= link_to "Delete", request_path(req.id), method: :delete, data: { confirm: "Really?"} %>
-      </li>
+      </div>
       <% end %>
       </div>
     <% else %>
