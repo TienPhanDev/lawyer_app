@@ -1,23 +1,17 @@
 # Lawyer Application README
-
-To-Dos
--from signup, redirect to multiform for lawyer completion  
--Implement below in UsersController; otherwise user can type users/1/edit and change data. current_user -> logged_in?
-before_action :logged_in_user, only: [:edit, :update]
-# Confirms a logged-in user.
-  def logged_in_user
-    unless logged_in?
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
-  end
--create seed data
-
+-from signup, redirect to multiform for lawyer completion (hidden field values from profile to account???)
+-if user logged in, signup button shouldnt be on front page
+-when lawyer cancels consult, it still have notification number in show page due to "accepted_requests", maybe change to active_requests? and request/id can still be visited somehow; likely due to request accepted but not yet accepted by client and so not a consult yet but our delete method routed to delete(request.consult.id)
+-line 34 of user.show breaks if client is offered consult; no lawyer.name
 
 
 **DEMO**
 -Showcase static pages layout links without being logged in(emphasize how header links differ once logged in)
+
+-Go to multi-step signup form and show creation of new client
+OR
 -Go to signup page & show how failure to signup presents errors correctly 
+
 -Signup new client;
   -point out header links changed due to logged in status
   -point out client CRUD functionality 
@@ -34,6 +28,9 @@ before_action :logged_in_user, only: [:edit, :update]
 -Show client accepting offered consult and consult form
 -Show lawyer going to consult show page to click complete consult
 -Show completed consult history for lawyer show page
+
 **EXTRA**
--Show how user cannot access other users profiles due to helper/controller methods
+-Show how logged in user cannot access other user profiles
+i.e. while logged in as mickey mouse from show page, try and enter /users/2 into browser and see rejection message but you can type in /user/11 because you have access to lawyer show pages
+-Show how once you click logout, you cannot hit back on browser to see show page again, it asks you to login
 
