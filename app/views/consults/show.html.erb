@@ -2,9 +2,18 @@
 <h2>Request created by: <%= @consult.client.name %></h2>
 <h2>Being reviewed by: <%= @consult.lawyer.name %></h2>
 <h2>Consultation Appointment</h2>
+<% if @consult.time %>
 <h3 class='center'>Time: <%= @consult.time.strftime("%b %e at %l:%M %p ") %></h3>
 <h3 class='center'>Place: <%= @consult.location %></h3>
+<% else %>
+<div class=" link-buttons center">
+<%= link_to "Accept Consult", edit_consult_path(@consult.id) %>
+<br>
+<%= link_to "Reject Consult", consult_path(@consult.id), method: :delete %>
+<br>
 <%= link_to "View Request Details", request_path(@consult.request_id) %>
+</div>
+<% end %>
 
 
 

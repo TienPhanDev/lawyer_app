@@ -338,10 +338,10 @@ header.navbar {
   margin-bottom: 0;
 }
 
-div.link-buttons a:hover {
-  text-decoration: none;
-  color: rgb(185, 124, 228);
-}
+// div.link-buttons a:hover {
+//   text-decoration: none;
+//   color: rgb(185, 124, 228);
+// }
 
 div.title-card {
   background-color: rgba(154, 176, 222, 0.9);
@@ -562,5 +562,27 @@ div.consult-card-description>p {
   border: 0;
   padding: 0;
   float: left;
+}
+
+div.link-buttons {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.link-buttons>a {
+  background-color: dodgerblue;
+  border-radius: 10px;
+  color: white;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.link-buttons>a:hover {
+  width: 40px;
+  background-color: rgb(154, 187, 220);
+  border-radius: 10px;
+  color: white;
+  padding: 5px;
+  margin-bottom: 5px;
 }
 

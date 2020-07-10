@@ -7,6 +7,7 @@ class User < ApplicationRecord
     has_many :lawyers, through: :requests
 
     has_many :consults, through: :requests
+    has_many :consults, through: :accepted_requests
 
     #before save to database, downcase all emails in case two emails are same
     before_save { self.email = email.downcase } 
@@ -49,6 +50,14 @@ class User < ApplicationRecord
 
     def lawyer_notification_count
         self.accepted_requests.count
+    end
+
+    def pending_requests
+        self.consults.where.not(status: 'completed')
+    end
+
+    def pending_count
+        self.pending_requests.count
     end
 
 end

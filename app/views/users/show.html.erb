@@ -22,9 +22,9 @@
       <% end %>
     </ul>
   </div>
-  <div class='link-buttons center'><%= button_to "Edit Profile", edit_user_path(@user.id) %></div>
+  <div class='link-buttons center'><%= link_to "Edit Profile", edit_user_path(@user.id) %></div>
   <div class='link-buttons center'>
-    <%= button_to "Delete Profile", user_path(@user.id), method: :delete, data: { confirm: "Really?"} %></div>
+    <%= link_to "Delete Profile", user_path(@user.id), method: :delete, data: { confirm: "Really?"} %></div>
 </div>
 
 
@@ -35,7 +35,7 @@
       <% if @user.lawyer == false %>
       <%= @user.client_notification_count unless @user.client_notification_count == 0 %>
       <% else %>
-      <%= @user.lawyer_notification_count unless @user.lawyer_notification_count == 0 %>
+      <%= @user.pending_count unless @user.pending_count == 0 %>
       <% end %>
     </span>
   </h2>
@@ -46,7 +46,9 @@
       <% @user.requests.each do |req|%>
       <li>
         <%= link_to req.title, request_path(req.id) %>
+        <% if req.consult %>
         <%= link_to "Consult with: " + req.consult.lawyer.name, consult_path(req.consult.id) %>
+        <% end %>
         <%= link_to "Edit", edit_request_path(req.id) %>
         <%= link_to "Delete", request_path(req.id), method: :delete, data: { confirm: "Really?"} %>
       </li>
@@ -54,15 +56,15 @@
       </div>
     <% else %>
     <div class="consult-container center col-12">
-      <% @user.accepted_requests.each do |req| %>
+      <% @user.pending_requests.each do |con| %>
         <div class="consult-card">
-          <a href= <%= request_path(req.id) %> >
+          <a href= <%= request_path(con.request.id) %> >
             <div class="consult-card-image"></div>
           </a>
           <div class="consult-card-description">
-            <h4> <%= link_to req.title, request_path(req.id) %> </h5>
-              <p>Name: <%= req.client.name unless req.client.nil? %></p>
-              <p>Created: <%= req.created_at.strftime("%b %d, %Y") %></p>
+            <h4> <%= link_to con.request.title, consult_path(con.id) %> </h5>
+              <p>Name: <%= con.request.client.name unless con.request.client.nil? %></p>
+              <p>Created: <%= con.request.created_at.strftime("%b %d, %Y") %></p>
           </div>
         </div>
       <% end %>
