@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :get_user, only: [ :show, :edit, :update, :destroy]
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:show, :edit, :update]
   def index
     @users = User.lawyers
   end
@@ -34,6 +35,7 @@ class UsersController < ApplicationController
       redirect_to user_path(@user.id)
     else 
       render 'edit'
+    end
   end
 
   def destroy
