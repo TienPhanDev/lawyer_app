@@ -1,28 +1,18 @@
 <h1>All Requests</h1>
 
-  <% @requests.each do |req| %>
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%= link_to req.title, request_path(req.id) %></h5>
-        <p class="card-text">Name: <%= req.client.name unless req.client.nil? %></p>
-        <p class="card-text">Created: <%= req.created_at.strftime("%b %d, %Y") %></p>
-      </div>
-    </div>
-  <% end %>
-
 <% @requests.each do |req| %>
-  <div class="property-card">
-    <a href="#">
-      <div class="property-image">
+<div class="card">
+  <a href="#">
+    <div class="card-image">
 
-      </div></a>
-    <div class="property-description">
-      <h5> <%= link_to req.title, request_path(req.id) %> </h5>
+    </div>
+  </a>
+  <div class="card-description">
+    <h4> <%= link_to req.title, request_path(req.id) %> </h5>
       <p>Name: <%= req.client.name unless req.client.nil? %></p>
       <p>Created: <%= req.created_at.strftime("%b %d, %Y") %></p>
-    </div>
   </div>
+</div>
 
 <% end %>
 
