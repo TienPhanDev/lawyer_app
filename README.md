@@ -1,36 +1,30 @@
-# Lawyer Application README
--from signup, redirect to multiform for lawyer completion (hidden field values from profile to account???)
--if user logged in, signup button shouldnt be on front page
--when lawyer cancels consult, it still have notification number in show page due to "accepted_requests", maybe change to active_requests? and request/id can still be visited somehow; likely due to request accepted but not yet accepted by client and so not a consult yet but our delete method routed to delete(request.consult.id)
--line 34 of user.show breaks if client is offered consult; no lawyer.name
+# Ambulance_Racer README
 
+Hello! And welcome to our app. Ambulance_Racer! Ambulance_Racer is intended to provide clients in need of legal assistance with a means of
+searching lawyers that are also registered with the app. and create a request with some brief information detailing their plight.  Once a request has been submitted, it is available for review by any attorney.  An attorney can decide to reach out via the app. and offer to set up a consult with the client.  Essentially, the main purpose to connect client and attorney in a easy and friendly environment.  There is no need for additional software at this time, and everything can be accessed through the website we've provided for you!
 
-**DEMO**
--Showcase static pages layout links without being logged in(emphasize how header links differ once logged in)
+Steps to get started:
 
--Go to multi-step signup form and show creation of new client
-OR
--Go to signup page & show how failure to signup presents errors correctly 
+Run 'bundle install' to update gemfile
+```
+$ bundle install
+```
+Next, migrate the database:
+```
+$ rails db:migrate
+```
+Seed the database and start your server
+```
+$ rails db:seed
+$ rails server
+```
+Now, simply go to the homepage and signup for a free account!
 
--Signup new client;
-  -point out header links changed due to logged in status
-  -point out client CRUD functionality 
-  -point out notification is empty w/ no requests
-  -click on browse to see list of lawyers available
-  -click profile and click create request & create 2 requests
--Click on profile to showcase pending requests CRUD functionality
--Click logout to show homepage
--Go to login to show signing in as lawyer & emphasize
-  -browse now shows requests from all clients 
-  -can select a request and offer a consult to client; (show page now reflects
-  lawyers requests they've offered consult on)
-  -show how lawyer can select offered request and have red cancel consult button
--Show client accepting offered consult and consult form
--Show lawyer going to consult show page to click complete consult
--Show completed consult history for lawyer show page
+Any questions or comments or contribution ideas can be forwarded to the project owners at:
+name: Dave Frame @Github ID: BartTheScrivner
+name: Tien Phan @Github ID: Tienphan1989
 
-**EXTRA**
--Show how logged in user cannot access other user profiles
-i.e. while logged in as mickey mouse from show page, try and enter /users/2 into browser and see rejection message but you can type in /user/11 because you have access to lawyer show pages
--Show how once you click logout, you cannot hit back on browser to see show page again, it asks you to login
+##License
+All source code in the [Ambulance_Racer] is available jointly under the MIT License. See
+[LICENSE.md](LICENSE.md) for details.
 
