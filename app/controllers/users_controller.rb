@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Signup Successful. Welcome!"
-      session[:user_id] = @user.id
+      log_in(@user)
       redirect_to user_path(@user.id)
     else
       render 'new'
@@ -29,14 +29,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    redirect_to user_path(@user.id)
+    if @user.update(user_params)
+      flash[:success] = "Profile updated!"
+      redirect_to user_path(@user.id)
+    else 
+      render 'edit'
   end
 
   def destroy
     @user.destroy
     flash[:success] = "Your account has been deleted."
-    session.clear
+    reset_session
     redirect_to root_path
   end
 
@@ -53,10 +56,9 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
     unless @user.current_or_lawyer?(current_user)
-      flash[:danger] = "You can't access other users' profiles!"
+      flash[:danger] = "Must log in as correct user to view this page."
       redirect_to root_path 
     end
-
   end
 
 end
