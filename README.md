@@ -39,6 +39,8 @@ name: Dave Frame @BartTheScrivner
 
 name: Tien Phan @TienPhanDev
 
+FULL DEMO: https://www.loom.com/share/6070692afd7c4b3f9071fa738dcc33d6
+
 ##License
 All source code in the [Ambulance_Racer] is available jointly under the MIT License. See
 [LICENSE.md](LICENSE.md) for details. 
