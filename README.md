@@ -1,4 +1,4 @@
-# Ambulance_Racer README
+# Ambulance_Racer
 
 Hello! Welcome to our web application Ambulance_Racer! Ambulance_Racer is intended to provide clients in need of legal assistance with a means of
 searching lawyers that are also registered with the app. and create a request with some brief information detailing their plight.  Once a request has been submitted, it is available for review by any attorney.  An attorney can decide to reach out via the app. and offer to set up a consult with the client.  Essentially, the main purpose to connect client and attorney in a easy and friendly environment.  There is no need for additional software at this time, and everything can be accessed through the website we've provided for you!
