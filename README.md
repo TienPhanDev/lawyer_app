@@ -3,7 +3,7 @@
 Hello! Welcome to our web application Ambulance_Racer! Ambulance_Racer is intended to provide clients in need of legal assistance with a means of
 searching lawyers that are also registered with the app. and create a request with some brief information detailing their plight.  Once a request has been submitted, it is available for review by any attorney.  An attorney can decide to reach out via the app. and offer to set up a consult with the client.  Essentially, the main purpose to connect client and attorney in a easy and friendly environment.  There is no need for additional software at this time, and everything can be accessed through the website we've provided for you!
 
-Prerequisites
+# Prerequisites
 
 Before you continue, ensure you have met the following requirements:
 
@@ -35,8 +35,8 @@ $ rails server
 Now, simply go to the homepage and signup for a free account!
 
 Any questions or comments or contribution ideas can be forwarded to the project owners at:
-name: Dave Frame @Github ID: BartTheScrivner
-name: Tien Phan @Github ID: TienPhanDev
+name: Dave Frame @BartTheScrivner
+name: Tien Phan @TienPhanDev
 
 ##License
 All source code in the [Ambulance_Racer] is available jointly under the MIT License. See
