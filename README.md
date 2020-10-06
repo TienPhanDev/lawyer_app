@@ -39,11 +39,10 @@ Now, simply go to the homepage and signup for a free account!
 
 Any questions or comments or contribution ideas can be forwarded to the project owners at:
 
-name: Dave Frame @BartTheScrivner
+Dave Frame @BartTheScrivner
 
-name: Tien Phan @TienPhanDev
+Tien Phan @TienPhanDev
 
 ##License
 All source code in the [Ambulance_Racer] is available jointly under the MIT License. See
 [LICENSE.md](LICENSE.md) for details. 
-
